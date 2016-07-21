@@ -25,6 +25,9 @@ RUN unzip /tmp/geocode-tool.zip -d /
 WORKDIR /geocode-tool-master
 RUN npm install
 
+# collectd
+ADD collectd/ /etc/collectd/
+
 # cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
