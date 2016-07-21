@@ -1,0 +1,9 @@
+geocode:
+  build: .
+  ports:
+    - "18080:80"
+  environment:
+    - USE_CONSUL=0
+    - USE_COLLECTD=1
+    - MONITORING_HOST=localhost
+  hostname: geocode-tool

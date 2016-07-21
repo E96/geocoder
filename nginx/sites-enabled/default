@@ -1,0 +1,20 @@
+server {
+    listen 80;
+    server_name ${GEOCODE_TOOL_HOST:-geocode-tool.local};
+
+    access_log /var/log/nginx/geocode-tool.access.log;
+    access_log /var/log/nginx/geocode-tool.stats.log stats;
+    error_log /var/log/nginx/geocode-tool.error.log;
+
+    location / {
+        proxy_set_header Access-Control-Allow-Origin *;
+        proxy_pass http://localhost:8887/;
+    }
+
+    location /status-nginx {
+        stub_status  on;
+        access_log   off;
+        allow        127.0.0.1;
+        deny         all;
+    }
+}

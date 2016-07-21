@@ -1,0 +1,18 @@
+{
+  "service": {
+    "name": "${GEOCODE_TOOL_SERVICE:-geocode-tool}",
+    "tags": [
+      "web",
+      "web:${GEOCODE_TOOL_HOST:-geocode-tool.local}"
+    ],
+    "port": 80,
+    "checks": [
+      {
+        "id": "geocode-tool",
+        "name": "${GEOCODE_TOOL_SERVICE:-geocode-tool}",
+        "http": "http://localhost:80/geocode-tool/",
+        "interval": "5s"
+      }
+    ]
+  }
+}
