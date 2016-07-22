@@ -26,6 +26,7 @@ WORKDIR /geocode-tool-master
 RUN npm install
 
 # collectd
+RUN apt-get install -y libcurl3 yajl-tools
 ADD collectd/ /etc/collectd/
 
 # cleanup
