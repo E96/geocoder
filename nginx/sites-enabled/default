@@ -11,10 +11,6 @@ server {
         proxy_pass http://localhost:8887/;
     }
 
-    location /stat {
-        proxy_pass http://localhost:8887/api/v1/stat;
-    }
-
     location /status-nginx {
         stub_status  on;
         access_log   off;
