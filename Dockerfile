@@ -26,11 +26,10 @@ WORKDIR /geocode-tool-master
 RUN npm install
 
 # collectd
-RUN apt-get install -y libcurl3 yajl-tools
+RUN add-apt-repository -y ppa:collectd/collectd-5.5
+RUN apt-get update -qq && apt-get install -o Dpkg::Options::="--force-confnew" -y libcurl3 yajl-tools collectd
 ADD collectd/ /etc/collectd/
-# upgrade collectd
-RUN wget https://collectd.org/files/collectd-5.5.0.tar.gz && tar -xzvf collectd-5.5.0.tar.gz && cd collectd-5.5.0 && \
-    ./configure && make all install && ln -sf /opt/collectd/sbin/collectd /usr/sbin/collectd
+RUN touch /etc/collectd/types.db
 
 # cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
