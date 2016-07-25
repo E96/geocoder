@@ -27,7 +27,7 @@ RUN npm install
 
 # collectd
 RUN add-apt-repository -y ppa:collectd/collectd-5.5
-RUN apt-get update -qq && apt-get install -o Dpkg::Options::="--force-confnew" -y libcurl3 yajl-tools collectd
+RUN apt-get update -qq && apt-get install -o Dpkg::Options::="--force-confnew" -y libcurl3 yajl-tools collectd-core
 ADD collectd/ /etc/collectd/
 RUN touch /etc/collectd/types.db
 
