@@ -10,7 +10,7 @@
       {
         "id": "geocode-tool",
         "name": "${GEOCODE_TOOL_SERVICE:-geocode-tool}",
-        "http": "http://localhost:80/api/v1/stat",
+        "http": "http://localhost:80/geocode-tool/api/v1/stat",
         "interval": "5s"
       }
     ]
