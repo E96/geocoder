@@ -2,8 +2,8 @@
   "service": {
     "name": "${GEOCODE_TOOL_SERVICE:-geocode-tool}",
     "tags": [
-      "web",
-      "web:${GEOCODE_TOOL_HOST:-geocode-tool.local}"
+      "http",
+      "http:${GEOCODE_TOOL_HOST:-geocode-tool.local}"
     ],
     "port": 80,
     "checks": [
