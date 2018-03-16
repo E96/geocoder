@@ -15,7 +15,7 @@ ADD nginx.sh /etc/service/nginx/run
 ADD nginx/ /etc/nginx/
 
 # node
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN apt-get install --no-install-recommends -y nodejs
 
 # install app
